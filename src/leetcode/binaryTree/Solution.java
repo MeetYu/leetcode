@@ -9,7 +9,12 @@ import java.util.Stack;
  */
 public class Solution {
 
-    public static List<Integer> preorder(Node tree) {
+    /**
+     * 二叉树的先序遍历
+     * @param tree the argument to be preorderly traversed.
+     * @return a list containing the result in order.
+     */
+    public static List<Integer> preorderTraversal(Node tree) {
         List<Integer> result = new ArrayList<Integer>();
 
         if (tree == null) {
