@@ -1,6 +1,7 @@
 package leetcode.binaryTree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -57,6 +58,35 @@ public class Solution {
                 Node e = stack.pop();
                 result.add(e.value);
                 root = e.right;
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Postorder traversal of a binary tree.
+     * @param root the argument to be postorderly traversed.
+     * @return a list containing the postorder traversal of its nodes' values.
+     */
+    public static List<Integer> postorderTraversal(Node root) {
+        LinkedList<Integer> result = new LinkedList<Integer>();
+
+        if (root == null) {
+            return result;
+        }
+
+        Stack<Node> stack = new Stack<Node>();
+        stack.push(root);
+        while (stack.size() > 0) {
+            Node e = stack.pop();
+            //采用LinkedList，可把最先遍历到的节点添加到列表末端，从而实现后序遍历。
+            result.addFirst(e.value);
+            if (e.left != null) {
+                stack.push(e.left);
+            }
+            if (e.right != null) {
+                stack.push(e.right);
             }
         }
 
