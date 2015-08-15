@@ -10,7 +10,7 @@ import java.util.Stack;
 public class Solution {
 
     /**
-     * 二叉树的先序遍历
+     * Preorder traversal of a binary tree.
      * @param tree the argument to be preorderly traversed.
      * @return a list containing the result in order.
      */
@@ -30,6 +30,33 @@ public class Solution {
             } else {
                 Node e = stack.pop();
                 tree = e.right;
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Inorder traversal of a binary tree.
+     * @param root the argument to be inorderly traversed.
+     * @return a list containing the inorder traversal of its nodes' values.
+     */
+    public static List<Integer> inorderTraversal(Node root) {
+        List<Integer> result = new ArrayList<Integer>();
+
+        if (root == null) {
+            return result;
+        }
+
+        Stack<Node> stack = new Stack<Node>();
+        while (!stack.isEmpty() || root != null) {
+            if (root != null) {
+                stack.push(root);
+                root = root.left;
+            } else {
+                Node e = stack.pop();
+                result.add(e.value);
+                root = e.right;
             }
         }
 
