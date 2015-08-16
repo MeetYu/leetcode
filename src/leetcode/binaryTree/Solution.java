@@ -1,9 +1,6 @@
 package leetcode.binaryTree;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created by meet on 2015/8/14.
@@ -80,7 +77,7 @@ public class Solution {
         stack.push(root);
         while (stack.size() > 0) {
             Node e = stack.pop();
-            //²ÉÓÃLinkedList£¬¿É°Ñ×îÏÈ±éÀúµ½µÄ½ÚµãÌí¼Óµ½ÁĞ±íÄ©¶Ë£¬´Ó¶øÊµÏÖºóĞò±éÀú¡£
+            //é‡‡ç”¨LinkedListï¼Œå¯æŠŠæœ€å…ˆéå†åˆ°çš„èŠ‚ç‚¹æ·»åŠ åˆ°åˆ—è¡¨æœ«ç«¯ï¼Œä»è€Œå®ç°ååºéå†ã€‚
             result.addFirst(e.value);
             if (e.left != null) {
                 stack.push(e.left);
@@ -90,6 +87,45 @@ public class Solution {
             }
         }
 
+        return result;
+    }
+
+    /**
+     * Levelorder traversal of a binary tree.
+     * @param root the argument to be levelorderly traversed.
+     * @return a list containing the levelorder traversal of its nodes' values.
+     */
+    public static List<List<Integer>> levelorderTraversal(Node root) {
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+
+        if (root == null) {
+            return result;
+        }
+
+        Queue<Node> queue = new LinkedList<Node>();
+        Node flag = new Node(0);
+        queue.add(root);
+        //æ·»åŠ æ ‡å¿—ä½æ¥åŒºåˆ†æ¯ä¸€å±‚ç»“æŸ
+        queue.add(flag);
+        List<Integer> level = new ArrayList<>();
+        while (queue.size() > 1) {
+            Node e = queue.poll();
+            if (e != flag) {
+                level.add(e.value);
+                if (e.left != null) {
+                    queue.add(e.left);
+                }
+                if (e.right != null) {
+                    queue.add(e.right);
+                }
+            } else {
+                result.add(level);
+                level = new ArrayList<Integer>();
+                queue.add(flag);
+            }
+        }
+
+        result.add(level);
         return result;
     }
 }
