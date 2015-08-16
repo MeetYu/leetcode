@@ -26,4 +26,31 @@ public class Solution {
 
         return ++head;
     }
+
+    /**
+     * leetcode: Remove Duplicates from Sorted Array II.
+     * @param nums the array to be remove its duplicates.
+     * @return the number of nums after remove its duplicates, or -1 if nums is null.
+     */
+    public int removeDuplicatesII(int[] nums) {
+        if (nums == null)
+            return -1;
+        if (nums.length <= 2)
+            return nums.length;
+
+        int head = 1;
+        int rep = 1;
+
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i - 1])
+                rep++;
+            else
+                rep = 1;
+            nums[head] = nums[i];
+            if (rep <= 2)
+                head++;
+        }
+
+        return head;
+    }
 }
