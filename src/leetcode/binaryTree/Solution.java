@@ -8,7 +8,7 @@ import java.util.*;
 public class Solution {
 
     /**
-     * Preorder traversal of a binary tree.
+     * leetcode: Binary Tree Preorder Traversal
      * @param tree the argument to be preorderly traversed.
      * @return a list containing the result in order.
      */
@@ -35,7 +35,7 @@ public class Solution {
     }
 
     /**
-     * Inorder traversal of a binary tree.
+     * leetcode: Binary Tree Inorder Traversal
      * @param root the argument to be inorderly traversed.
      * @return a list containing the inorder traversal of its nodes' values.
      */
@@ -62,7 +62,7 @@ public class Solution {
     }
 
     /**
-     * Postorder traversal of a binary tree.
+     * leetcode: Binary Tree Postorder Traversal
      * @param root the argument to be postorderly traversed.
      * @return a list containing the postorder traversal of its nodes' values.
      */
@@ -91,7 +91,7 @@ public class Solution {
     }
 
     /**
-     * Levelorder traversal of a binary tree.
+     * leetcode: Binary Tree Level Order Traversal
      * @param root the argument to be levelorderly traversed.
      * @return a list containing the levelorder traversal of its nodes' values.
      */
