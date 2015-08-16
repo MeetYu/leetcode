@@ -53,4 +53,25 @@ public class Solution {
 
         return head;
     }
+
+    /**
+     * leetcode: Remove Element.
+     * @param nums the array to be remove its duplicates.
+     * @return the number of nums after remove its duplicates, or -1 if nums is null.
+     */
+    public static int removeElement(int[] nums, int val) {
+        if (nums == null)
+            return -1;
+
+        int index = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
+                nums[index] = nums[i];
+                index++;
+            }
+        }
+
+        return index++;
+    }
 }
