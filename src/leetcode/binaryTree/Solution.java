@@ -9,6 +9,9 @@ public class Solution {
 
     /**
      * leetcode: Binary Tree Preorder Traversal
+     *
+     * Given a binary tree, return the preorder traversal of its nodes' values.
+     *
      * @param tree the argument to be preorderly traversed.
      * @return a list containing the result in order.
      */
@@ -36,6 +39,9 @@ public class Solution {
 
     /**
      * leetcode: Binary Tree Inorder Traversal
+     *
+     * Given a binary tree, return the inorder traversal of its nodes' values.
+     *
      * @param root the argument to be inorderly traversed.
      * @return a list containing the inorder traversal of its nodes' values.
      */
@@ -63,6 +69,9 @@ public class Solution {
 
     /**
      * leetcode: Binary Tree Postorder Traversal
+     *
+     * Given a binary tree, return the postorder traversal of its nodes' values.
+     *
      * @param root the argument to be postorderly traversed.
      * @return a list containing the postorder traversal of its nodes' values.
      */
@@ -92,6 +101,10 @@ public class Solution {
 
     /**
      * leetcode: Binary Tree Level Order Traversal
+     *
+     * Given a binary tree, return the level order traversal of its nodes'
+     * values. (ie, from left to right, level by level).
+     *
      * @param root the argument to be levelorderly traversed.
      * @return a list containing the levelorder traversal of its nodes' values.
      */
