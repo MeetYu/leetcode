@@ -141,4 +141,47 @@ public class Solution {
         result.add(level);
         return result;
     }
+
+    /**
+     * leetcode: Binary Tree Level Order Traversal II
+     *
+     * Given a binary tree, return the bottom-up level order traversal of its
+     * nodes' values. (ie, from left to right, level by level from leaf to root).
+     *
+     * @param root the argument to be levelorderly traversed.
+     * @return a list containing the levelorder traversal of its nodes' values.
+     */
+    public List<List<Integer>> levelOrderBottom(Node root) {
+        LinkedList<List<Integer>> result = new LinkedList<List<Integer>>();
+
+        if (root == null) {
+            return result;
+        }
+
+        Queue<Node> queue = new LinkedList<Node>();
+        Node flag = new Node(0);
+        queue.add(root);
+        //添加标志位来区分每一层结束
+        queue.add(flag);
+        List<Integer> level = new ArrayList<>();
+        while (queue.size() > 1) {
+            Node e = queue.poll();
+            if (e != flag) {
+                level.add(e.value);
+                if (e.left != null) {
+                    queue.add(e.left);
+                }
+                if (e.right != null) {
+                    queue.add(e.right);
+                }
+            } else {
+                result.addFirst(level);
+                level = new ArrayList<Integer>();
+                queue.add(flag);
+            }
+        }
+
+        result.addFirst(level);
+        return result;
+    }
 }
