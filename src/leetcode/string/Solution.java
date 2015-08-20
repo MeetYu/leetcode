@@ -31,4 +31,31 @@ public class Solution {
         }
         return true;
     }
+
+    /**
+     * leetcode: Implement strStr()
+     *
+     * Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+     *
+     * @param haystack the string
+     * @param needle the string
+     * @return the index of the first occurrence of needle in haystack,
+     *          or -1 if needle is not part of haystack.
+     */
+    public int strStr(String haystack, String needle) {
+        if (haystack == null || needle == null)
+            return -1;
+        int hayLen = haystack.length();
+        int neeLen = needle.length();
+        if (hayLen < neeLen)
+            return -1;
+        int index = -1;
+        for (int i = 0; i <= hayLen - neeLen; i++) {
+            if (needle.equals(haystack.substring(i, i + neeLen))) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
 }
