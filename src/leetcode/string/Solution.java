@@ -58,4 +58,32 @@ public class Solution {
         }
         return index;
     }
+
+    /**
+     * leetcode: String to Integer (atoi).
+     *
+     * Implement atoi to convert a string to an integer.
+     *
+     * @param str string to be converted.
+     * @return an integer converted from the argument str, or 0 if str is null, str's length is zero.
+     */
+    public int myAtoi(String str) {
+        if (str == null || str.length() == 0)
+            return 0;
+        int i = 0;
+        while (str.charAt(i) == ' ')
+            i++;
+        int flag = str.charAt(i) == '-' ? -1 : 1;
+        if (str.charAt(i) == '-' || str.charAt(i) == '+')
+            i++;
+        int res = 0;
+        char tmp;
+        while (i < str.length() && ((tmp = str.charAt(i)) >= '0' && tmp <= '9')) {
+            if (res > 214748364 || (res == 214748364 && tmp > '7'))
+                return flag == 1 ? 2147483647 : -2147483648;
+            res = res * 10 + tmp - '0';
+            i++;
+        }
+        return res * flag;
+    }
 }
