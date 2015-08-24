@@ -86,4 +86,35 @@ public class Solution {
         }
         return res * flag;
     }
+
+    /**
+     * leetcode: Add Binary.
+     *
+     * Given two binary strings, return their sum (also a binary string).
+     *
+     * @param a
+     * @param b
+     * @return a string, or null if and only if both a and b are null.
+     */
+    public String addBinary(String a, String b) {
+        if (a == null || a.length() == 0)
+            return b;
+        if (b == null || b.length() == 0)
+            return a;
+        int aIndex = a.length() - 1;
+        int bIndex = b.length() - 1;
+        StringBuilder res = new StringBuilder();
+        int carry = 0;
+        while (aIndex >= 0 || bIndex >= 0) {
+            int aVal = aIndex >= 0 ? a.charAt(aIndex--) - '0' : 0;
+            int bVal = bIndex >= 0 ? b.charAt(bIndex--) - '0' : 0;
+            int val = (aVal + bVal + carry) % 2;
+            carry = (aVal + bVal + carry) / 2;
+            res.insert(0, val);
+        }
+        if (carry == 1)
+            res.insert(0, 1);
+
+        return res.toString();
+    }
 }
