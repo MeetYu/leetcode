@@ -98,4 +98,34 @@ public class Solution {
 
         return index++;
     }
+
+    /**
+     * leetcode: Missing Number.
+     *
+     * Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
+     *
+     * @param nums the array to check.
+     * @return the missing number, or -1 if nums is null.
+     */
+    public int missingNumber(int[] nums) {
+        if (nums == null)
+            return -1;
+
+        int max = 0;
+        int a = 0;
+        int b = 0;
+        boolean hasZero = false;
+        for (int i = 0; i < nums.length; i++) {
+            max = max < nums[i] ? nums[i] : max;
+            a ^= nums[i];
+            if (nums[i] == 0)
+                hasZero = true;
+        }
+        if (!hasZero)
+            return 0;
+            
+        for (int j = 0; j <= max; j++)
+            b ^= j;
+        return a != b ? a ^ b : max + 1;
+    }
 }
