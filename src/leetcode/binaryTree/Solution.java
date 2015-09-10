@@ -184,4 +184,21 @@ public class Solution {
         result.addFirst(level);
         return result;
     }
+
+    /**
+     * Leetcode: Invert Binary Tree.
+     *
+     * This method inverts a tree recursively.
+     *
+     * @param root the root of a tree.
+     * @return the root of an inverted tree.
+     */
+    public Node invertTreeRecursively(Node root) {
+        if (root == null)
+            return null;
+        Node tmpNode = root.left;
+        root.left = invertTreeRecursively(root.right);
+        root.right = invertTreeRecursively(tmpNode);
+        return root;
+    }
 }
