@@ -44,4 +44,28 @@ public class Solution {
 
         return res.next;
     }
+
+    /**
+     * Leetcode: Reverse Linked List
+     *
+     * Reverse a singly linked list.
+     *
+     * @param head is the first node of a singly linked list.
+     * @return the reversed list.
+     */
+    public ListNode reverseList(ListNode head) {
+        ListNode pPre = null;
+        ListNode pNode = head;
+        ListNode pNext = null;
+        while(pNode != null) {
+            pNext = pNode.next;
+            pNode.next = pPre;
+            if (pNext == null)
+                break;
+            pPre = pNode;
+            pNode = pNext;
+        }
+        head = pNode;
+        return head;
+    }
 }
