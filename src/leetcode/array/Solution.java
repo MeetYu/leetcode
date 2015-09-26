@@ -128,4 +128,30 @@ public class Solution {
             b ^= j;
         return a != b ? a ^ b : max + 1;
     }
+
+    /**
+     * Leetcode: Reverse Integer
+     *
+     * Reverse digits of an integer.
+     *
+     * @param x an integer
+     * @return the reversed integer, or 0 if the result exceeds.
+     */
+    public int reverse(int x) {
+        int res = 0;
+
+        while(x != 0) {
+            res = res * 10 + x % 10;
+            x /= 10;
+            if ((res > 214748364 && x != 0 ) || (res == 214748364 && x > 7)) {
+                res = 0;
+                break;
+            }
+            if ((res < -214748364 && x != 0) || (res == -214748364 && x < -8)) {
+                res = 0;
+                break;
+            }
+        }
+        return res;
+    }
 }
