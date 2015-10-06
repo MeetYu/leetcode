@@ -154,4 +154,31 @@ public class Solution {
         }
         return res;
     }
+
+    /**
+     * Move Zeroes.
+     *
+     * Given an array nums, write a function to move all 0's to the end of it
+     * while maintaining the relative order of the non-zero elements.
+     *
+     * For example, given nums = [0, 1, 0, 3, 12], after calling your function,
+     * nums should be [1, 3, 12, 0, 0].
+     *
+     * @param nums the array to be moved.
+     */
+    public void moveZeroes(int[] nums) {
+        if (nums == null || nums.length == 0)
+            return ;
+
+        int pHead = 0;
+        int pRear = 0;
+        while (pRear < nums.length) {
+            if (nums[pRear] != 0) {
+                nums[pHead++] = nums[pRear];
+            }
+            pRear++;
+        }
+        while (pHead < pRear)
+            nums[pHead++] = 0;
+    }
 }
